@@ -1,0 +1,682 @@
+.header {
+  margin: 50px 70px 0 140px;
+  display: flex;
+
+  .logo {
+    margin: auto auto auto 0;
+    transition: opacity 0.3s ease;
+
+    img {
+      width: 219px;
+      max-width: 100%;
+    }
+  }
+
+  .bars {
+    cursor: pointer;
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+    margin: auto 0 auto auto;
+    width: 25px;
+    fill: url(#mobile-menu-gradient) #fff;
+    transition: opacity, fill 0.3s ease;
+
+
+    &:hover {
+      fill: #512a95;
+    }
+  }
+
+  .menu {
+    margin: auto 0 auto auto;
+    display: flex;
+    list-style: none;
+
+    li {
+      margin: auto 20px;
+
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-family: 'Red Hat Display', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 16px;
+      }
+
+      .selectChainArea {
+        pointer-events: none;
+        position: relative;
+        margin-right: 20px;
+        
+        button {
+          padding: 15px 27.5px;
+          position: relative;
+          color: #fff;
+          background: linear-gradient(-90deg, rgba(32, 29, 41, 0.5) 0%, rgba(32, 56, 150, 0.5) 40%, rgba(104, 32, 150, 0.5) 70%, rgba(170, 71, 233, 0.5) 100%);
+          background-size: 122%;
+          font-family: 'Red Hat Display', sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          font-style: normal;
+          line-height: 16px;
+          text-transform: uppercase;
+          outline: none;
+          border: none;
+          border-radius: 10px;
+          transition: color, background 0.3s ease;
+          pointer-events: all;
+          //transition: all 0.3s;
+
+          &.dropdownButtonIcon {
+            overflow: hidden;
+            padding-left: 65px;
+  
+            .ethereum {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 14px;
+              margin: auto;
+              width: 40px;
+            }
+  
+            .bnbChain {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 14px;
+              margin: auto;
+              width: 40px;
+            }
+  
+            .avalanche {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 14px;
+              margin: auto;
+              width: 40px;
+            }
+          }
+
+          &.dropdownButton {
+            display: flex;
+            align-items: center;
+  
+            .carrotUp {
+              margin: auto 0 auto 15px;
+              width: 12px;
+              height: 20px;
+              fill: #3854a8;
+            }
+  
+            .carrotDown {
+              margin: auto 0 auto 15px;
+              width: 12px;
+              height: 20px;
+              fill: #3854a8;
+            }
+  
+            @keyframes fadeIn {
+              0% {
+                opacity: 0;
+                transform: translateY(-100px);
+              }
+  
+              100% {
+                opacity: 1;
+                transform: translateY(0px);
+              }
+            }
+
+            
+          }
+
+          &.dropdownActive {
+            //pointer-events: none;
+  
+            li {
+              pointer-events: all;
+            }
+          }
+  
+          &.dropdownActive:hover {
+            color: #fff;
+            background: linear-gradient(-90deg, rgba(32, 29, 41, 0.5) 0%, rgba(32, 56, 150, 0.5) 40%, rgba(104, 32, 150, 0.5) 70%, rgba(170, 71, 233, 0.5) 100%);
+            background-size: 122%;
+          }
+
+          &:hover {
+            color: #512a95;
+            background: #fff;
+          }
+        }
+
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background: #fff;
+          outline: none;
+          border: none;
+          border-radius: 10px;
+          opacity: 0.28;
+          mix-blend-mode: overlay;
+        }
+
+        &:last-child {
+          margin-right: 0;
+          margin-left: 20px;
+
+          &::before {
+            left: -20px;
+            right: 0;
+          }
+        }
+
+        .dropdownMenu {
+          color: #fff;
+          font-style: normal;
+          pointer-events: all;
+          display: none;
+          z-index: 1;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 100%;
+          list-style: none;
+          margin: 20px 0;
+          padding: 15px 0;
+          background-color: #161624;
+          border-radius: 10px;
+          flex-direction: column;
+          animation: fadeIn 1s;
+
+          @keyframes fadeOutMenuAnimation {
+            0% {
+              opacity: 1;
+              transform: translateY(0px);
+            }
+            
+            100% {
+              opacity: 0;
+              transform: translateY(-100px);
+            }
+          }
+
+          &.fadeOutMenu {
+            animation: fadeOutMenuAnimation 1s;
+          }
+
+
+          li {
+            padding: 10px 0;
+            margin: auto 0;
+            display: flex;
+            cursor: pointer;
+
+            svg {
+              margin: auto 20px;
+              width: 30px;
+              height: 30px;
+            }
+
+            p {
+              margin: auto 0;
+              padding: 0;
+              font-family: 'Red Hat Display', sans-serif;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 16px;
+              text-transform: none;
+
+            }
+
+            &:hover {
+              background: linear-gradient(90deg, rgba(40, 44, 60, 0.4) 0%, rgba(72, 62, 130, 0.4) 100%);
+            }
+          }
+
+          &.show {
+            display: flex;
+          }
+        }
+
+
+      }
+
+      .btnConnectWallet {
+        cursor: pointer;
+        position: relative;
+        margin-right: 20px;
+        padding: 15px 27.5px;
+        color: #fff;
+        background: linear-gradient(-90deg, rgba(32, 29, 41, 0.5) 0%, rgba(32, 56, 150, 0.5) 40%, rgba(104, 32, 150, 0.5) 70%, rgba(170, 71, 233, 0.5) 100%);
+        background-size: 122%;
+        font-family: 'Red Hat Display', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        font-style: normal;
+        line-height: 16px;
+        text-transform: uppercase;
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        transition: color, background 0.3s ease;
+
+        &.large {
+          font-weight: 700;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: -20px;
+          width: 1px;
+          background: rgba(255, 255, 255, 0.53);
+          mix-blend-mode: soft-light;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background: #fff;
+          outline: none;
+          border: none;
+          border-radius: 10px;
+          opacity: 0.28;
+          mix-blend-mode: overlay;
+        }
+
+        &:last-child {
+          margin-right: 0;
+          margin-left: 20px;
+
+          &::before {
+            left: -20px;
+            right: 0;
+          }
+        }
+
+        &:hover {
+          color: #512a95;
+          background: #fff;
+        }
+      }
+
+      &.buttonContainer {
+        position: relative;
+        display: flex;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .mobileMenu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.43);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    li {
+      margin: 20px auto;
+
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-family: 'Red Hat Display', sans-serif;
+        font-size: 28px;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 28px;
+      }
+      
+      .selectChainArea {
+        pointer-events: none;
+        position: relative;
+        margin-bottom: 20px;
+
+        
+        button {
+          padding: 15px 27.5px;
+          position: relative;
+          color: #fff;
+          background: linear-gradient(-90deg, rgba(32, 29, 41, 0.5) 0%, rgba(32, 56, 150, 0.5) 40%, rgba(104, 32, 150, 0.5) 70%, rgba(170, 71, 233, 0.5) 100%);
+          background-size: 122%;
+          font-family: 'Red Hat Display', sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          font-style: normal;
+          line-height: 16px;
+          text-transform: uppercase;
+          outline: none;
+          border: none;
+          border-radius: 10px;
+          transition: color, background 0.3s ease;
+          pointer-events: all;
+
+          &.dropdownButtonIcon {
+            overflow: hidden;
+            padding-left: 65px;
+  
+            .ethereum {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 14px;
+              margin: auto;
+              width: 40px;
+            }
+  
+            .bnbChain {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 14px;
+              margin: auto;
+              width: 40px;
+            }
+  
+            .avalanche {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 14px;
+              margin: auto;
+              width: 40px;
+            }
+          }
+
+          &.dropdownButton {
+            display: flex;
+            align-items: center;
+  
+            .carrotUp {
+              margin: auto 0 auto 15px;
+              width: 20px;
+              height: 20px;
+              fill: #3854a8;
+            }
+  
+            .carrotDown {
+              margin: auto 0 auto 15px;
+              width: 20px;
+              height: 20px;
+              fill: #3854a8;
+            }
+  
+            @keyframes fadeIn {
+              0% {
+                opacity: 0;
+                transform: translateY(-100px);
+              }
+  
+              100% {
+                opacity: 1;
+                transform: translateY(0px);
+              }
+            }
+
+
+            @keyframes fadeOut {
+              0% {
+                opacity: 1;
+                transform: translateY(0px);
+              }
+              
+              100% {
+                opacity: 0;
+                transform: translateY(-100px);
+              }
+            }
+          }
+
+          &.dropdownActive {
+            //pointer-events: none;
+  
+            li {
+              pointer-events: all;
+            }
+          }
+  
+          &.dropdownActive:hover {
+            color: #fff;
+            background: linear-gradient(-90deg, rgba(32, 29, 41, 0.5) 0%, rgba(32, 56, 150, 0.5) 40%, rgba(104, 32, 150, 0.5) 70%, rgba(170, 71, 233, 0.5) 100%);
+            background-size: 122%;
+          }
+
+          &:hover {
+            color: #512a95;
+            background: #fff;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background: #fff;
+          outline: none;
+          border: none;
+          border-radius: 10px;
+          opacity: 0.28;
+          mix-blend-mode: overlay;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+          margin-top: 20px;
+        }
+
+        .dropdownMenu {
+          color: #fff;
+          font-style: normal;
+          pointer-events: all;
+          display: none;
+          z-index: 1;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 100%;
+          list-style: none;
+          margin: 20px 0;
+          padding: 15px 0;
+          background-color: #161624;
+          border-radius: 10px;
+          flex-direction: column;
+          animation: fadeIn 1s;
+
+          &.fadeOutMenu {
+            animation: fadeOut 1s;
+          }
+
+
+          li {
+            padding: 10px 0;
+            margin: auto 0;
+            display: flex;
+            cursor: pointer;
+
+            svg {
+              margin: auto 20px;
+              width: 30px;
+              height: 30px;
+            }
+
+            p {
+              margin: auto 0;
+              padding: 0;
+              font-family: 'Red Hat Display', sans-serif;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 16px;
+              text-transform: none;
+
+            }
+
+            &:hover {
+              background: linear-gradient(90deg, rgba(40, 44, 60, 0.4) 0%, rgba(72, 62, 130, 0.4) 100%);
+            }
+          }
+
+          &.show {
+            display: flex;
+          }
+        }
+
+
+      }
+
+      .btnConnectWallet {
+        cursor: pointer;
+        position: relative;
+        padding: 15px 27.5px;
+        color: #fff;
+        background: linear-gradient(-90deg, rgba(32, 29, 41, 0.5) 0%, rgba(32, 56, 150, 0.5) 40%, rgba(104, 32, 150, 0.5) 70%, rgba(170, 71, 233, 0.5) 100%);
+        background-size: 122%;
+        font-family: 'Red Hat Display', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        font-style: normal;
+        line-height: 16px;
+        text-transform: uppercase;
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        transition: color, background 0.3s ease;
+
+        &.large {
+          font-weight: 700;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background: #fff;
+          outline: none;
+          border: none;
+          border-radius: 10px;
+          opacity: 0.28;
+          mix-blend-mode: overlay;
+        }
+
+        &:hover {
+          color: #512a95;
+          background: #fff;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+          margin-top: 20px;
+        }
+      }
+
+      &.buttonContainer {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
+      &.logo {
+        position: absolute;
+        top: 30px;
+        left: 10%;
+        width: 219px;
+        max-width: 100%;
+      }
+
+      &.xcross {
+        position: absolute;
+        top: 32px;
+        right: 10%;
+        cursor: pointer;
+        width: 25px;
+        fill: url(#mobile-menu-gradient) #fff;
+        transition: fill 0.3s ease;
+
+        &:hover {
+          fill: #512a95;
+
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .header {
+    margin: 50px 20px 0 20px;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .header {
+    margin: 50px 10% 0 10%;
+
+    .logo.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .bars {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+
+      &.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    .mobileMenu {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 1;
+
+      &.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    .menu {
+      display: none;
+    }
+  }
+}
